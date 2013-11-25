@@ -3,11 +3,4 @@
 use PHPUnit_Framework_TestCase;
 use Philipbrown\Money\Money;
 
-class TestCase extends PHPUnit_Framework_TestCase {
-
-  public function setUp()
-  {
-    $this->m = new Money;
-  }
-
-}
+class TestCase extends PHPUnit_Framework_TestCase {}
