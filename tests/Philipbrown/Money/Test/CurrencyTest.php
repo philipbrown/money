@@ -20,6 +20,7 @@ class CurrencyTest extends TestCase {
     $this->assertEquals('.', $c->getDecimalMark());
     $this->assertEquals(',', $c->getThousandsSeperator());
     $this->assertEquals(826, $c->getIsoNumeric());
+    $this->assertEquals('British Pound', $c);
   }
 
   /**

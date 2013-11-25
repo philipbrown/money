@@ -227,4 +227,12 @@ class Currency {
     return $this->iso_numeric;
   }
 
+  /**
+   * @return string
+   */
+  public function __toString()
+  {
+    return $this->getName();
+  }
+
 }
