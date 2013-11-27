@@ -9,6 +9,7 @@ class MoneyTest extends TestCase {
   {
     $m = Money::init(500, 'USD');
     $this->assertEquals(500, $m->cents);
+    $this->assertInstanceOf('Philipbrown\Money\Currency', $m->currency);
   }
 
 }

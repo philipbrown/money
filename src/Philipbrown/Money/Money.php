@@ -39,6 +39,16 @@ class Money {
   }
 
   /**
+   * Get Currency Parameter
+   *
+   * @return Money\Currency
+   */
+  public function getCurrencyParameter()
+  {
+    return $this->currency;
+  }
+
+  /**
    * __get Magic Method
    *
    * @return mixed
