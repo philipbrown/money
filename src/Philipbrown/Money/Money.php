@@ -60,6 +60,17 @@ class Money {
   }
 
   /**
+   * Equals
+   *
+   * @param Money
+   * @return bool
+   */
+  public function equals(Money $money)
+  {
+    return $this->isSameCurrency($money) && $this->cents == $money->cents;
+  }
+
+  /**
    * __get Magic Method
    *
    * @return mixed
