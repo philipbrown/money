@@ -53,7 +53,7 @@ class Money {
   /**
    * Is Same Currency
    *
-   * @param Money
+   * @param $money Money
    * @return bool
    */
   public function isSameCurrency(Money $money)
@@ -64,7 +64,7 @@ class Money {
   /**
    * Equals
    *
-   * @param Money
+   * @param $money Money
    * @return bool
    */
   public function equals(Money $money)
@@ -75,7 +75,7 @@ class Money {
   /**
    * Add
    *
-   * @param Money
+   * @param $money Money
    * @return Money
    */
   public function add(Money $money)
@@ -91,7 +91,7 @@ class Money {
   /**
    * Subtract
    *
-   * @param Money
+   * @param $money Money
    * @return Money
    */
   public function subtract(Money $money)
