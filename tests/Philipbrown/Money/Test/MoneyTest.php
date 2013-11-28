@@ -39,4 +39,23 @@ class MoneyTest extends TestCase {
     $this->assertFalse($three->equals($six));
   }
 
+  public function testAdd()
+  {
+    $one = Money::init(500, 'USD');
+    $two = Money::init(500, 'USD');
+    $three = $one->add($two);
+    $this->assertEquals(1000, $three->cents);
+  }
+
+  /**
+   * @expectedException        Philipbrown\Money\Exception\InvalidCurrencyException
+   * @expectedExceptionMessage You can't add to Money objects with different currencies
+   */
+  public function testAddException()
+  {
+    $one = Money::init(500, 'USD');
+    $two = Money::init(500, 'GBP');
+    $three = $one->add($two);
+  }
+
 }

@@ -1,5 +1,7 @@
 <?php namespace Philipbrown\Money;
 
+use Philipbrown\Money\Exception\InvalidCurrencyException;
+
 class Money {
 
   /**
@@ -68,6 +70,22 @@ class Money {
   public function equals(Money $money)
   {
     return $this->isSameCurrency($money) && $this->cents == $money->cents;
+  }
+
+  /**
+   * Add
+   *
+   * @param Money
+   * @return Money
+   */
+  public function add(Money $money)
+  {
+    if($this->isSameCurrency($money))
+    {
+      return $this->init($this->cents + $money->cents, $this->currency->getIsoCode());
+    }
+
+    throw new InvalidCurrencyException("You can't add to Money objects with different currencies");
   }
 
   /**
