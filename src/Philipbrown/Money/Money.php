@@ -85,7 +85,23 @@ class Money {
       return $this->init($this->cents + $money->cents, $this->currency->getIsoCode());
     }
 
-    throw new InvalidCurrencyException("You can't add to Money objects with different currencies");
+    throw new InvalidCurrencyException("You can't add two Money objects with different currencies");
+  }
+
+  /**
+   * Subtract
+   *
+   * @param Money
+   * @return Money
+   */
+  public function subtract(Money $money)
+  {
+    if($this->isSameCurrency($money))
+    {
+      return $this->init($this->cents - $money->cents, $this->currency->getIsoCode());
+    }
+
+    throw new InvalidCurrencyException("You can't subtract two Money objects with different currencies");
   }
 
   /**

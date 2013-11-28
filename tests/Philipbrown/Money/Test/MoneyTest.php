@@ -49,13 +49,32 @@ class MoneyTest extends TestCase {
 
   /**
    * @expectedException        Philipbrown\Money\Exception\InvalidCurrencyException
-   * @expectedExceptionMessage You can't add to Money objects with different currencies
+   * @expectedExceptionMessage You can't add two Money objects with different currencies
    */
   public function testAddException()
   {
     $one = Money::init(500, 'USD');
     $two = Money::init(500, 'GBP');
     $three = $one->add($two);
+  }
+
+  public function testSubtract()
+  {
+    $one = Money::init(500, 'USD');
+    $two = Money::init(100, 'USD');
+    $three = $one->subtract($two);
+    $this->assertEquals(400, $three->cents);
+  }
+
+  /**
+   * @expectedException        Philipbrown\Money\Exception\InvalidCurrencyException
+   * @expectedExceptionMessage You can't subtract two Money objects with different currencies
+   */
+  public function testSubtractException()
+  {
+    $one = Money::init(500, 'USD');
+    $two = Money::init(100, 'GBP');
+    $three = $one->subtract($two);
   }
 
 }
