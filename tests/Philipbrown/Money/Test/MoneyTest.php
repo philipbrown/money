@@ -12,4 +12,13 @@ class MoneyTest extends TestCase {
     $this->assertInstanceOf('Philipbrown\Money\Currency', $m->currency);
   }
 
+  public function testIsSameCurrency()
+  {
+    $one = Money::init(500, 'USD');
+    $two = Money::init(500, 'USD');
+    $three = Money::init(500, 'GBP');
+    $this->assertTrue($one->isSameCurrency($two));
+    $this->assertFalse($one->isSameCurrency($three));
+  }
+
 }

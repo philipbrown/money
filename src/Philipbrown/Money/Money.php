@@ -49,6 +49,17 @@ class Money {
   }
 
   /**
+   * Is Same Currency
+   *
+   * @param Money
+   * @return bool
+   */
+  public function isSameCurrency(Money $money)
+  {
+    return $this->currency->getIsoCode() == $money->currency->getIsoCode();
+  }
+
+  /**
    * __get Magic Method
    *
    * @return mixed
