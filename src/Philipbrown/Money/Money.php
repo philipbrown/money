@@ -10,12 +10,19 @@ class Money {
   protected $fractional;
 
   /**
+   * @var bool
+   */
+  protected $assumeFromSymbol;
+
+  /**
    * Construct
    */
   public function __construct($fractional, Currency $currency)
   {
     $this->fractional = $fractional;
     $this->currency = $currency;
+
+    $this->assumeFromSymbol = false;
   }
 
   /**
@@ -82,7 +89,7 @@ class Money {
   {
     if($this->isSameCurrency($money))
     {
-      return $this->init($this->cents + $money->cents, $this->currency->getIsoCode());
+      return Money::init($this->cents + $money->cents, $this->currency->getIsoCode());
     }
 
     throw new InvalidCurrencyException("You can't add two Money objects with different currencies");
@@ -98,7 +105,7 @@ class Money {
   {
     if($this->isSameCurrency($money))
     {
-      return $this->init($this->cents - $money->cents, $this->currency->getIsoCode());
+      return Money::init($this->cents - $money->cents, $this->currency->getIsoCode());
     }
 
     throw new InvalidCurrencyException("You can't subtract two Money objects with different currencies");
@@ -114,7 +121,7 @@ class Money {
   {
     if(is_int($number))
     {
-      return $this->init((int) round($this->cents * $number, 0, PHP_ROUND_HALF_EVEN), $this->currency->getIsoCode());
+      return Money::init((int) round($this->cents * $number, 0, PHP_ROUND_HALF_EVEN), $this->currency->getIsoCode());
     }
   }
 
@@ -128,7 +135,46 @@ class Money {
   {
     if(is_int($number))
     {
-      return $this->init((int) round($this->cents / $number, 0, PHP_ROUND_HALF_EVEN), $this->currency->getIsoCode());
+      return Money::init((int) round($this->cents / $number, 0, PHP_ROUND_HALF_EVEN), $this->currency->getIsoCode());
+    }
+  }
+
+  /**
+   * Assume From Symbol
+   *
+   * @param $bool bool
+   * @return void
+   */
+  public function assumeFromSymbol($bool)
+  {
+    $this->assumeFromSymbol = $bool;
+  }
+
+  /**
+   * Parse
+   *
+   * @param $string string
+   * @return Money
+   *
+   * todo: rewrite this coz it's terrible
+   */
+  public function parse($string)
+  {
+    $symbol = substr($string, 0, 1);
+
+    $amount = substr($string, 1);
+
+    switch($symbol)
+    {
+      case '$':
+
+        break;
+      case '£':
+
+        break;
+      case '€':
+
+        break;
     }
   }
 
