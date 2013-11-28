@@ -105,6 +105,34 @@ class Money {
   }
 
   /**
+   * Multiply
+   *
+   * @param $number int
+   * @return Money
+   */
+  public function multiply($number)
+  {
+    if(is_int($number))
+    {
+      return $this->init((int) round($this->cents * $number, 0, PHP_ROUND_HALF_EVEN), $this->currency->getIsoCode());
+    }
+  }
+
+  /**
+   * Divide
+   *
+   * @param $number int
+   * @return Money
+   */
+  public function divide($number)
+  {
+    if(is_int($number))
+    {
+      return $this->init((int) round($this->cents / $number, 0, PHP_ROUND_HALF_EVEN), $this->currency->getIsoCode());
+    }
+  }
+
+  /**
    * __get Magic Method
    *
    * @return mixed

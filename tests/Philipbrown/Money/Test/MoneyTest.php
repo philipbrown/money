@@ -77,4 +77,18 @@ class MoneyTest extends TestCase {
     $three = $one->subtract($two);
   }
 
+  public function testMultiply()
+  {
+    $one = Money::init(100, 'USD');
+    $two = $one->multiply(2);
+    $this->assertEquals(200, $two->cents);
+  }
+
+  public function testDivide()
+  {
+    $one = Money::init(200, 'USD');
+    $two = $one->divide(2);
+    $this->assertEquals(100, $two->cents);
+  }
+
 }
