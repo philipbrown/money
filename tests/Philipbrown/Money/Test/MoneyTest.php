@@ -82,6 +82,10 @@ class MoneyTest extends TestCase {
     $one = Money::init(100, 'USD');
     $two = $one->multiply(2);
     $this->assertEquals(200, $two->cents);
+
+    $three = Money::init(1000, 'USD');
+    $four = $three->multiply(.20);
+    $this->assertEquals(200, $four->cents);
   }
 
   public function testDivide()
@@ -89,6 +93,10 @@ class MoneyTest extends TestCase {
     $one = Money::init(200, 'USD');
     $two = $one->divide(2);
     $this->assertEquals(100, $two->cents);
+
+    $three = Money::init(1000, 'USD');
+    $four = $three->divide(.20);
+    $this->assertEquals(5000, $four->cents);
   }
 
 }

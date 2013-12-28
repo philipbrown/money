@@ -10,19 +10,12 @@ class Money {
   protected $fractional;
 
   /**
-   * @var bool
-   */
-  protected $assumeFromSymbol;
-
-  /**
    * Construct
    */
   public function __construct($fractional, Currency $currency)
   {
     $this->fractional = $fractional;
     $this->currency = $currency;
-
-    $this->assumeFromSymbol = false;
   }
 
   /**
@@ -119,10 +112,7 @@ class Money {
    */
   public function multiply($number)
   {
-    if(is_int($number))
-    {
-      return Money::init((int) round($this->cents * $number, 0, PHP_ROUND_HALF_EVEN), $this->currency->getIsoCode());
-    }
+    return Money::init((int) round($this->cents * $number, 0, PHP_ROUND_HALF_EVEN), $this->currency->getIsoCode());
   }
 
   /**
@@ -133,21 +123,7 @@ class Money {
    */
   public function divide($number)
   {
-    if(is_int($number))
-    {
-      return Money::init((int) round($this->cents / $number, 0, PHP_ROUND_HALF_EVEN), $this->currency->getIsoCode());
-    }
-  }
-
-  /**
-   * Assume From Symbol
-   *
-   * @param $bool bool
-   * @return void
-   */
-  public function assumeFromSymbol($bool)
-  {
-    $this->assumeFromSymbol = $bool;
+    return Money::init((int) round($this->cents / $number, 0, PHP_ROUND_HALF_EVEN), $this->currency->getIsoCode());
   }
 
   /**
