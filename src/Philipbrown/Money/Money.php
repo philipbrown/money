@@ -151,34 +151,6 @@ class Money {
   }
 
   /**
-   * Parse
-   *
-   * @param $string string
-   * @return Money
-   *
-   * todo: rewrite this coz it's terrible
-   */
-  public function parse($string)
-  {
-    $symbol = substr($string, 0, 1);
-
-    $amount = substr($string, 1);
-
-    switch($symbol)
-    {
-      case '$':
-
-        break;
-      case '£':
-
-        break;
-      case '€':
-
-        break;
-    }
-  }
-
-  /**
    * __get Magic Method
    *
    * @return mixed
