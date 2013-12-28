@@ -22,6 +22,52 @@ Add `philipbrown/money` as a requirement to `composer.json`:
 ```
 Update your packages with `composer update`.
 
+## Usage
+To create a new `Money` object you either instantiate like you normally would, or use the `init` static convenience method.
+```php
+// Create a new Money object representing $5 USD
+$m = Money::init(500, 'USD');
+$m = new Money(500, 'USD');
+```
+
+Values are stored as integers to avoid the problem of floating point errors. To access the value of the `Money` object you can simply request the `cent` property. To get the currency of the object you can request the `currency` property. This will return an instance of `Money\Curreny` that has a `__toString` method.
+```php
+$m->cents; // 500
+$m->currency; // United States Dollar
+```
+
+Equality is important to working with many different types of currency. You shouldn't be able to blindly add two different currencies without some kind of exchange process.
+```php
+$m = Money::init(500, 'USD');
+
+$m->isSameCurrency(Money::init(500, 'GBP')); // false
+```
+
+A [Value Object](http://en.wikipedia.org/wiki/Value_object) is an object that represents an entity whose equality isn't based on identity: i.e. two value objects are equal when they have the same value, not necessarily being the same object.
+```php
+$one = Money::init(500, 'USD');
+$two = Money::init(500, 'USD');
+$three = Money::init(501, 'USD');
+
+$one->equals($two); // true
+$one->equals($three); // false
+```
+
+Inevitably you are going to need to add, subtract, multiply and divide values of money in your application.
+```php
+$one = Money::init(500, 'USD');
+$two = Money::init(500, 'USD');
+$three = $one->add($two);
+$three->cents // 1000
+```
+Again you shouldn't be able to add to values of different currencies without some kind of exchange process.
+```php
+$one = Money::init(500, 'USD');
+$two = Money::init(500, 'GBP');
+
+$three = $one->add($two); // Money\Exception\InvalidCurrencyException
+```
+
 ## License
 The MIT License (MIT)
 
