@@ -6,7 +6,7 @@
 
 `Money` is a PHP class that allows you to easily work with money within your application including it's value and currency. Each currency has it's associated information encapsulated with a seperate `Currency` class.
 
-Values are reperesented as integers in cents to avoid floating point rounding errors.
+Values are represented as integers in cents to avoid floating point rounding errors.
 
 Return values are immutable value objects.
 
