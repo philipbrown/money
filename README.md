@@ -2,6 +2,8 @@
 
 **Shameless port of [RubyMoney](https://github.com/RubyMoney/money)**
 
+[![Build Status](https://travis-ci.org/philipbrown/money.png?branch=master)](https://travis-ci.org/philipbrown/money)
+
 `Money` is a PHP class that allows you to easily work with money within your application including it's value and currency. Each currency has it's associated information encapsulated with a seperate `Currency` class.
 
 Values are reperesented as integers in cents to avoid floating point rounding errors.
