@@ -1,6 +1,6 @@
 {
     "name": "philipbrown/money",
-    "description": "money",
+    "description": "Shameless port of RubyMoney",
     "license": "MIT",
     "authors": [
         {
