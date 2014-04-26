@@ -1,4 +1,4 @@
-<?php namespace Philipbrown\Money\Exception;
+<?php namespace PhilipBrown\Money\Exception;
 
 use Exception;
 

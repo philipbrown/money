@@ -1,9 +1,9 @@
-<?php namespace Philipbrown\Money\Test;
+<?php
 
-use Philipbrown\Money\Money;
-use Philipbrown\Money\Currency;
+use PhilipBrown\Money\Money;
+use PhilipBrown\Money\Currency;
 
-class CurrencyTest extends TestCase {
+class CurrencyTest extends PHPUnit_Framework_TestCase {
 
   public function testInit()
   {

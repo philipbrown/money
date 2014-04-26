@@ -1,9 +1,9 @@
-<?php namespace Philipbrown\Money\Test;
+<?php
 
-use Philipbrown\Money\Money;
-use Philipbrown\Money\Currency;
+use PhilipBrown\Money\Money;
+use PhilipBrown\Money\Currency;
 
-class MoneyTest extends TestCase {
+class MoneyTest extends PHPUnit_Framework_TestCase {
 
   public function testGetValue()
   {

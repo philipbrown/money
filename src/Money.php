@@ -1,6 +1,6 @@
-<?php namespace Philipbrown\Money;
+<?php namespace PhilipBrown\Money;
 
-use Philipbrown\Money\Exception\InvalidCurrencyException;
+use PhilipBrown\Money\Exception\InvalidCurrencyException;
 
 class Money {
 
