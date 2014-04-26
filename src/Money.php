@@ -5,12 +5,18 @@ use PhilipBrown\Money\Exception\InvalidCurrencyException;
 class Money {
 
   /**
+   * The fractional unit of the value
+   *
    * @var int
    */
   protected $fractional;
 
   /**
-   * Construct
+   * Create a new instance of Money
+   *
+   * @param int $fractional
+   * @param PhilipBrown\Money\Currency $currency
+   * @return void
    */
   public function __construct($fractional, Currency $currency)
   {
@@ -19,11 +25,13 @@ class Money {
   }
 
   /**
-   * Init
+   * A static function to create a new instance of Money.
+   * I just wanted dat sexy Ruby syntax if I'm honest,
+   * (https://github.com/RubyMoney/money)
    *
-   * @param $value int
-   * @param $currency string
-   * @return Money
+   * @param int $value
+   * @param string $currency
+   * @return PhilipBrown\Money\Money
    */
   public static function init($value, $currency)
   {
@@ -31,7 +39,7 @@ class Money {
   }
 
   /**
-   * Get Value Parameter
+   * Get the fractional value of the object
    *
    * @return int
    */
@@ -41,9 +49,9 @@ class Money {
   }
 
   /**
-   * Get Currency Parameter
+   * Get the Currency objecr
    *
-   * @return Money\Currency
+   * @return PhilipBrown\Money\Currency
    */
   public function getCurrencyParameter()
   {
@@ -51,9 +59,9 @@ class Money {
   }
 
   /**
-   * Is Same Currency
+   * Check the Iso code to evaluate the equality of the currency
    *
-   * @param $money Money
+   * @param PhilipBrown\Money\Money
    * @return bool
    */
   public function isSameCurrency(Money $money)
@@ -62,9 +70,10 @@ class Money {
   }
 
   /**
-   * Equals
+   * Check the equality of two Money objects.
+   * First check the currency and then check the value.
    *
-   * @param $money Money
+   * @param PhilipBrown\Money\Money
    * @return bool
    */
   public function equals(Money $money)
@@ -73,7 +82,7 @@ class Money {
   }
 
   /**
-   * Add
+   * Add two the value of two Money objects and return a new Money object.
    *
    * @param $money Money
    * @return Money
@@ -89,7 +98,7 @@ class Money {
   }
 
   /**
-   * Subtract
+   * Subtract the value of one Money object from another and return a new Money object
    *
    * @param $money Money
    * @return Money
@@ -105,7 +114,7 @@ class Money {
   }
 
   /**
-   * Multiply
+   * Multiply two Money objects together and return a new Money object
    *
    * @param $number int
    * @return Money
@@ -116,7 +125,7 @@ class Money {
   }
 
   /**
-   * Divide
+   * Divide one Money object and return a new Money object
    *
    * @param $number int
    * @return Money
@@ -127,7 +136,7 @@ class Money {
   }
 
   /**
-   * __get Magic Method
+   * Magic method to dynamically get object parameters
    *
    * @return mixed
    */

@@ -97,10 +97,10 @@ class Currency {
   }
 
   /**
-   * Init
+   * Create a new Currency object
    *
-   * @param $name string
-   * @return Currency
+   * @param string $name
+   * @return PhilipBrown\Money\Currency
    */
   public static function init($name)
   {
