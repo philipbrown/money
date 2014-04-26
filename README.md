@@ -16,7 +16,7 @@ Add `philipbrown/money` as a requirement to `composer.json`:
 ```json
 {
   "require": {
-    "philipbrown/money": "dev-master"
+    "philipbrown/money": "1.*"
   }
 }
 ```
