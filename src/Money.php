@@ -12,6 +12,13 @@ class Money {
   protected $fractional;
 
   /**
+   * The currency of the value
+   *
+   * @var PhilipBrown\Money\Currency
+   */
+  protected $currency;
+
+  /**
    * Create a new instance of Money
    *
    * @param int $fractional
@@ -49,7 +56,7 @@ class Money {
   }
 
   /**
-   * Get the Currency objecr
+   * Get the Currency object
    *
    * @return PhilipBrown\Money\Currency
    */
@@ -84,8 +91,8 @@ class Money {
   /**
    * Add two the value of two Money objects and return a new Money object.
    *
-   * @param $money Money
-   * @return Money
+   * @param PhilipBrown\Money\Money $money
+   * @return PhilipBrown\Money\Money
    */
   public function add(Money $money)
   {
@@ -100,8 +107,8 @@ class Money {
   /**
    * Subtract the value of one Money object from another and return a new Money object
    *
-   * @param $money Money
-   * @return Money
+   * @param PhilipBrown\Money\Money $money
+   * @return PhilipBrown\Money\Money
    */
   public function subtract(Money $money)
   {
@@ -116,8 +123,8 @@ class Money {
   /**
    * Multiply two Money objects together and return a new Money object
    *
-   * @param $number int
-   * @return Money
+   * @param int $number
+   * @return PhilipBrown\Money\Money
    */
   public function multiply($number)
   {
@@ -127,8 +134,8 @@ class Money {
   /**
    * Divide one Money object and return a new Money object
    *
-   * @param $number int
-   * @return Money
+   * @param int $number
+   * @return PhilipBrown\Money\Money
    */
   public function divide($number)
   {

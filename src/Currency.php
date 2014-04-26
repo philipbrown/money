@@ -65,9 +65,10 @@ class Currency {
   protected $iso_numeric;
 
   /**
-   * Construct
+   * Create a new instance of Currency
    *
-   * @param $name string
+   * @param string $name
+   * @return void
    */
   public function __construct($name)
   {
