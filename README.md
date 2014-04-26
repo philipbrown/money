@@ -30,7 +30,7 @@ $m = Money::init(500, 'USD');
 $m = new Money(500, 'USD');
 ```
 
-Values are stored as integers to avoid the problem of floating point errors. To access the value of the `Money` object you can simply request the `cent` property. To get the currency of the object you can request the `currency` property. This will return an instance of `Money\Curreny` that has a `__toString` method.
+Values are stored as integers to avoid the problem of floating point errors. To access the value of the `Money` object you can simply request the `cents` property. To get the currency of the object you can request the `currency` property. This will return an instance of `Money\Curreny` that has a `__toString` method.
 ```php
 $m->cents; // 500
 $m->currency; // United States Dollar
@@ -60,7 +60,7 @@ $two = Money::init(500, 'USD');
 $three = $one->add($two);
 $three->cents // 1000
 ```
-Again you shouldn't be able to add to values of different currencies without some kind of exchange process.
+Again, you shouldn't be able to add to values of different currencies without some kind of exchange process.
 ```php
 $one = Money::init(500, 'USD');
 $two = Money::init(500, 'GBP');
