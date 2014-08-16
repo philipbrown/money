@@ -1,4 +1,4 @@
-# Money
+# Money (DEPRECATED)
 
 **Shameless port of [RubyMoney](https://github.com/RubyMoney/money)**
 
